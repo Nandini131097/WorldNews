@@ -24,12 +24,63 @@ body{
 
 #DateTime{
   display: flex;
-  justify-content: center;
-  width: 100%;
-  height: 10%;
+  padding: 2%;
+  justify-content: space-between;
+  width: 96%;
+  height: fit-content;
   background-color: aliceblue;
   color: black;
 }
+.hamburger{
+  display: none;
+   font-size: 2rem;
+}
+
+#navContainerHam{
+  padding: 2%;
+  border: 3px solid white;
+  display: none;
+  position: fixed;
+  right: 0;
+  top: 2%;
+  width: 80%;
+  height: max-content;
+  background-color: blue;
+  object-fit: cover;
+}
+#navContainerHam ul{
+  display: block;
+  padding: 2%;
+  object-fit: cover;
+}
+#navContainerHam ul li{
+  margin: 5%;
+  object-fit: cover;
+}
+#navContainerHam button{
+  position: fixed;
+  width: 3rem;
+  height: 3rem;
+  font-size: 2rem;
+  right: 0;
+  object-fit: cover;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #mianComponent{
   display: flex;
   flex-direction: column;
@@ -51,6 +102,16 @@ header img {
   height: auto; /* Maintain aspect ratio */
 }
 
+
+#Nav-Bar{
+  display: block;
+}
+#CategoriesDiv{
+  display: block;
+}
+#CategoriesDiv h3{
+  text-align: center;
+}
 
 ul{
   
@@ -78,4 +139,34 @@ a{
   border: 2px solid red;
   width:40%;
   height: 300px;
+}
+
+@media screen and (min-width:200px) and (max-width:768px) {
+ 
+  .hamburger{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+ } 
+ #Nav-Bar{
+  display: none;
+}
+#CategoriesDiv{
+  display: none;
+}
+#navContainerHam {
+  display: none; /* Hide navigation container by default */
+}
+  
+}
+@media (min-width: 769px) {
+  .hamburger {
+    display: none; /* Hide hamburger on larger screens */
+  }
+  
+  #navContainerHam {
+    display: none !important; /* Ensure it's hidden if screen size increases */
+  }
 }
