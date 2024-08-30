@@ -68,13 +68,14 @@ a{
 }
 .newsCardsContainer{
   display: flex;
-  justify-content: space-between;
-  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 5px;
 
 }
 
 .newsCard{
   border: 2px solid red;
-  width:50%;
+  width:40%;
   height: 300px;
 }
