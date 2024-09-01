@@ -33,10 +33,11 @@ function DateTime( {closeNavBar,ClickHamburger}) {
                   <li><a href="#about">About</a></li>
                   <li><a href="#services">Categories</a>
                   <ul id='CategoryList'>
-                    <li id="CatList1">Business</li>
-                    <li id="CatList2">Sports</li>
-                    <li id="CatList3">Politices</li>
-                    <li id="CatList4">LifeStyle</li>
+                  <li id="cat-list1"><a href='#'>Business</a></li>
+                        <li id="cat-list1"><a href='#'>General</a></li>
+                        <li id="cat-list2"> <a href='#'>Sports</a></li>
+                        <li id="cat-list3"><a href='#'>Entertainment</a></li>
+                        <li id="cat-list4"><a href='#'>Technology</a></li>
                   </ul>
                   </li>
                   <li><a href="#contact">Contact</a></li>

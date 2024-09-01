@@ -6,10 +6,15 @@ import Categories from './Categories'
 import NewsCards from './NewsCards'
 import Pagination from './Pagination'
 import { useState, useEffect } from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
 
 
-
-export default function Maincomponent() {
+export default function Maincomponent(props) {
 
   const [newsData, setNewsData] = useState([]);
   const [totalPosts, setTotalPosts] = useState(0);
@@ -18,37 +23,8 @@ const [postperPage, setpostperPage] = useState(6)
 
 
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(`${import.meta.env.VITE_API_URL}${import.meta.env.VITE_API_KEY}`);
 
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        
-        
-
-        const contentType = response.headers.get("content-type");
-        if (contentType && contentType.includes("application/json")) {
-          const data = await response.json();
-          
-          
-          // Check the structure of the response data here
-          // Assuming the response contains 'sources' array
-          setNewsData(data.sources || []); // Update this based on the actual structure
-          setTotalPosts(data.sources.length || 0)
-        } else {
-          console.error("Expected JSON, but got something else.");
-        }
-      } catch (error) {
-        console.error('Error fetching the news data:', error);
-      }
-    };
-
-    fetchData();
-  }, []);
+  
 
   const ClickHamburger = () => {
     const navContainerHamElement = document.getElementById('navContainerHam');
@@ -78,20 +54,34 @@ const [postperPage, setpostperPage] = useState(6)
     <>
     
     <div id='mianComponent'>
+    <Router>
+    
         <DateTime ClickHamburger={ClickHamburger} closeNavBar={closeNavBar}/>
         <Header/>
         <Navbar/>
-        <Categories/>
+        <Routes>
+          <Route path="/business" element={<Categories category='business' />} />
+          <Route path="/" element={<Categories category='entertainment' />} />
+          <Route path="/general" element={<Categories category='general' />} />
+          <Route path="/health" element={<Categories category='health' />} />
+          <Route path="/science" element={<Categories category='science' />} />
+          <Route path="/sports" element={<Categories category='sports' />} />
+          <Route path="/technology" element={<Categories category='technology' />} />
+        </Routes> 
         <NewsCards 
         newsData={newsData} 
         currentPage={currentPage} 
         postperPage={postperPage} 
+        setNewsData={setNewsData}
+        setTotalPosts={setTotalPosts}
           />   
         <Pagination  
         totalPosts={totalPosts} 
         postperPage={postperPage} 
         setCurrentPage={setCurrentPage}
         />
+
+</Router>
     </div>
     </>
     
