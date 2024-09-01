@@ -59,15 +59,19 @@ const [postperPage, setpostperPage] = useState(6)
         <DateTime ClickHamburger={ClickHamburger} closeNavBar={closeNavBar}/>
         <Header/>
         <Navbar/>
+        
         <Routes>
-          <Route path="/business" element={<Categories category='business' />} />
-          <Route path="/" element={<Categories category='entertainment' />} />
-          <Route path="/general" element={<Categories category='general' />} />
-          <Route path="/health" element={<Categories category='health' />} />
-          <Route path="/science" element={<Categories category='science' />} />
-          <Route path="/sports" element={<Categories category='sports' />} />
-          <Route path="/technology" element={<Categories category='technology' />} />
-        </Routes> 
+          <Route path="/business" element={<Categories category='business' setNewsData={setNewsData} setTotalPosts={setTotalPosts} />} />
+
+          <Route path="/" element={<Categories category='general' setNewsData={setNewsData} setTotalPosts={setTotalPosts} />} />
+          <Route path="/general" element={<Categories category='general' setNewsData={setNewsData} setTotalPosts={setTotalPosts} />} />
+          <Route path="/health" element={<Categories category='health' setNewsData={setNewsData} setTotalPosts={setTotalPosts} />} />
+          <Route path="/science" element={<Categories category='science' setNewsData={setNewsData} setTotalPosts={setTotalPosts} />} />
+          <Route path="/sports" element={<Categories category='sports' setNewsData={setNewsData} setTotalPosts={setTotalPosts} />} />
+          <Route path="/technology" element={<Categories category='technology' setNewsData={setNewsData} setTotalPosts={setTotalPosts} />} />
+          <Route path="/entertaintment" element={<Categories category='entertaintment' setNewsData={setNewsData} setTotalPosts={setTotalPosts} />} />
+        </Routes>
+
         <NewsCards 
         newsData={newsData} 
         currentPage={currentPage} 
