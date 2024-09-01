@@ -4,8 +4,8 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: black;
+  background-color: #9894c9;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -22,48 +22,110 @@ body{
   height: 100vh;
 }
 
+
+
 #DateTime{
+  
+  margin-bottom: 5px;
   display: flex;
-  padding: 2%;
   justify-content: space-between;
-  width: 96%;
+  padding:0 0 0 1%;
+  width: 98.5%;
   height: fit-content;
-  background-color: aliceblue;
+  background-color:#8e71f5;
   color: black;
+  border-radius: 10px;
+  border: 2px solid #42349d;
+  /* box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px; */
 }
 .hamburger{
+  /* position: fixed; */
   display: none;
    font-size: 2rem;
+   background-color: transparent;
+   border: none;
+   transition-property: all;
+   transition-duration: 0s;
+   transition-delay: 0ms;
+}
+.hamburger:hover{
+  font-size: 2.5rem;
+  cursor: pointer;
+}
+#navContainerHam {
+  display: none;
+  margin: 0;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-radius: 10px;
+  overflow-y: hidden;
+  background-color: #242424;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
 
-#navContainerHam{
-  padding: 2%;
-  border: 3px solid white;
-  display: none;
+/* Slide-in animation */
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Slide-out animation */
+@keyframes slideOutLeft {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+.Ul-main{
   position: fixed;
   right: 0;
-  top: 2%;
   width: 80%;
-  height: max-content;
-  background-color: blue;
+  height: 100%;
+  padding: 2%;
+  display: block;
   object-fit: cover;
+
+  border-radius: 10px;
+  border: 3px solid white;
+ 
+  background-color: #7354f9;
+  
 }
-#navContainerHam ul{
+.Ul-main li a{
+  color: white;
+}
+
+#CategoryList{
   display: block;
   padding: 2%;
-  object-fit: cover;
 }
 #navContainerHam ul li{
   margin: 5%;
   object-fit: cover;
 }
 #navContainerHam button{
-  position: fixed;
+  
   width: 3rem;
   height: 3rem;
   font-size: 2rem;
-  right: 0;
+
   object-fit: cover;
+  background-color: transparent;
+  border: none;
 }
 
 
@@ -92,34 +154,51 @@ body{
 header{
   display: flex;
   justify-content: space-between;
-  background-color: wheat;
+  background-color: #42349d;
   padding: 2%;
-  width: 96%;
+  width: 95.5%;
+  border-radius: 10px;
+  border: 2px solid #cbccde;
+  margin-bottom: 5px;
+  color: white;
 }
 
 header img {
   width: 10em; /* Adjusted for better responsiveness */
   height: auto; /* Maintain aspect ratio */
+  border-radius: 10px;
 }
 
 
 #Nav-Bar{
   display: block;
+  border-radius: 10px;
+  border: 2px solid #42349d;
+  margin-bottom: 5px;
 }
 #CategoriesDiv{
   display: block;
+  border-radius: 10px;
+  border: 2px solid #42349d;
+  margin-bottom: 5px;
 }
 #CategoriesDiv h3{
+  background-color: #cbccde;
   text-align: center;
+  margin: 0;
+  padding: 0;
+  border-radius:10px 10px 0 0 ;
+ 
 }
 
 ul{
-  
-  background-color: aqua;
+ 
+  /* background-color: #7354f9; */
   display: flex;
   justify-content: center;
   color: black;
   gap: 10px;
+  margin: 0;
 }
 ul li{
   list-style-type: none;
@@ -127,18 +206,110 @@ ul li{
 a{
   text-decoration: none;
 }
-.newsCardsContainer{
+.newsCardsContainer {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
-  gap: 5px;
+  gap: 16px;
+  padding: 16px;
+  justify-content: center;
+  background-color: #42349d;
+  border-radius: 10px;
+  border: 2px solid #cbccde;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+.newsCard {
+  background-color: #cbccde;
+  color: #242424;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 300px;
+  padding: 16px;
+  border: 2px solid #6b6867;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+.newsCard:hover {
+  background-color: #b1b2c6;
+  transform: translateY(-5px); /* Moves the card slightly upwards */
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 25px 50px, rgba(0, 0, 0, 0.3) 0px 20px 15px;
+  border-color: #5a5857; /* Darkens the border color */
+}
+
+.newsCard img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.newsCard h3 {
+  font-size: 1.25rem;
+  margin: 12px 0;
+}
+
+.newsCard p {
+  font-size: 1rem;
+  color: #555;
+}
+#Description{
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  background-color: #7354f9;
+  padding: 0 10px 0 10px;
+  border: 2px solid #42349d;
+  
+}
+#Description p{
+  color: white;
+  
+}
+
+.newsCard a {
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.newsCard a:hover {
+  text-decoration: underline;
+  color: #242424;
+  font-weight: 500;
+}
+
+
+.pagination {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.pagination button {
+  padding: 10px 15px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  min-width: 40px; /* Ensure all buttons have the same minimum width */
+  min-height: 40px; /* Ensure all buttons have the same minimum height */
+  text-align: center;
+  line-height: 1.5; /* Ensures consistent height alignment */
+  border-radius: 5px;
 
 }
 
-.newsCard{
-  border: 2px solid red;
-  width:40%;
-  height: 300px;
+.pagination button:hover {
+  background-color: 	#6b6867;
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.pagination button:focus {
+  outline: none;
+  background-color: #42349d;
+  color: white;
 }
 
 @media screen and (min-width:200px) and (max-width:768px) {
@@ -159,7 +330,17 @@ a{
 #navContainerHam {
   display: none; /* Hide navigation container by default */
 }
+
+.pagination {  
+  overflow-x: scroll;
+}
   
+}
+
+@media screen and (min-width: 769px) and (max-width: 1000px){
+  .pagination {  
+    overflow-x: scroll;
+  }
 }
 @media (min-width: 769px) {
   .hamburger {

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-function DateTime() {
+function DateTime( {closeNavBar,ClickHamburger}) {
     const [mydate,sateDate]=useState(0)
     useEffect(() => {
 
@@ -12,18 +12,7 @@ function DateTime() {
     }, [])
 
     
-    const ClickHamburger=()=>{
-      const navContainerHamElement = document.getElementById('navContainerHam');
-      if(navContainerHamElement.style.display==='none'){
-        navContainerHamElement.style.display='block';
-      }
-      else{
-        navContainerHamElement.style.display='none';
-      }
-    }
-    
-
-
+  
   
   return (
     <>
@@ -33,12 +22,13 @@ function DateTime() {
           <i className="fa-duotone fa-solid fa-bars"></i>
         </button>
     </div>
-
+    
     <div id='navContainerHam'>
-    <button onClick={ClickHamburger} id='crossHambar'>
+    
+          <ul className='Ul-main' >
+          <button onClick={closeNavBar} id='crossHambar'>
         <i className="fa-solid fa-xmark"></i>
         </button>
-          <ul >
                   <li><a href="#home">Home</a></li>
                   <li><a href="#about">About</a></li>
                   <li><a href="#services">Categories</a>
